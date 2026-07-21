@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wilkester Ngatia — IT student, web developer, and video/content editor based in Nairobi, Kenya.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FF3D8A'/%3E%3Cstop offset='100%25' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%23140B24'/%3E%3Ctext x='50' y='66' font-size='46' font-family='sans-serif' font-weight='800' fill='url(%23g)' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<title>Wilkester Ngatia — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#140B24;
+  --panel:rgba(255,255,255,0.055);
+  --panel-2:rgba(255,255,255,0.04);
+  --orange:#FF8A3D;
+  --pink:#FF3D8A;
+  --purple:#A855F7;
+  --cyan:#22D3EE;
+  --paper:#F6F3FF;
+  --steel:#B3A9D6;
+  --line:rgba(255,255,255,0.12);
+  --line-strong:rgba(255,255,255,0.22);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--paper);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  background-image:
+    radial-gradient(ellipse 900px 700px at 8% -8%, rgba(255,61,138,0.35), transparent 55%),
+    radial-gradient(ellipse 800px 800px at 100% 5%, rgba(34,211,238,0.30), transparent 55%),
+    radial-gradient(ellipse 900px 700px at 20% 60%, rgba(168,85,247,0.30), transparent 55%),
+    radial-gradient(ellipse 800px 700px at 90% 90%, rgba(255,138,61,0.25), transparent 55%);
+  background-attachment:fixed;
+  opacity:0;
+  animation:fadein 0.6s ease forwards;
+  position:relative;
+}
+@keyframes fadein{to{opacity:1;}}
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  .reveal{opacity:1; transform:none;}
+}
+h1,h2,h3,.mono{font-family:'Sora',sans-serif;}
+.mono-label{font-family:'Inter',sans-serif; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; font-size:11px; color:var(--steel);}
+a{color:var(--cyan); text-decoration:none;}
+a:hover{text-decoration:underline;}
+:focus-visible{outline:2px solid var(--pink); outline-offset:2px;}
+
+.wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+
+/* ===== Top nav ===== */
+nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(20,11,36,0.75);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex; align-items:center; justify-content:space-between; height:60px;}
+nav .brand{font-family:'Sora',sans-serif; font-weight:700; font-size:15px; background:linear-gradient(90deg,var(--pink),var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+nav ul{list-style:none; display:flex; gap:28px;}
+nav a{color:var(--steel); font-size:14px; font-weight:500; position:relative; padding-bottom:4px; transition:color 0.2s ease;}
+nav a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--pink),var(--cyan)); transition:width 0.25s ease;}
+nav a:hover{color:var(--paper); text-decoration:none;}
+nav a:hover::after{width:100%;}
+
+/* ===== Hero ===== */
+.hero{padding:72px 0 40px;}
+.sheet-meta{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:18px;}
+.titleblock{
+  border:1px solid var(--line-strong);
+  background:var(--panel);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:0;
+  overflow:hidden;
+  box-shadow:0 40px 80px -30px rgba(168,85,247,0.35);
+}
+.tb-row{display:grid; grid-template-columns:2fr 1fr; border-bottom:1px solid var(--line);}
+.tb-row:last-child{border-bottom:none;}
+.tb-main{padding:44px 40px; border-right:1px solid var(--line); display:flex; gap:26px; align-items:flex-start;}
+.tb-photo{
+  width:100px; height:100px; border-radius:50%; flex-shrink:0;
+  padding:3px;
+  background:linear-gradient(135deg,var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 12px 28px -8px rgba(255,61,138,0.5);
+}
+.tb-photo img{width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; border:3px solid var(--bg);}
+.tb-photo-placeholder{
+  width:100%; height:100%; border-radius:50%;
+  background:var(--panel-2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:600; color:var(--steel); text-align:center; line-height:1.4;
+}
+.tb-main h1{font-size:46px; font-weight:800; line-height:1.1; margin-bottom:10px; background:linear-gradient(90deg,var(--paper) 20%,var(--pink) 70%,var(--orange) 110%); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.tb-main .role{font-family:'Sora',sans-serif; font-weight:600; font-size:15px; color:var(--cyan); margin-bottom:18px;}
+.tb-main p{color:var(--steel); font-size:15px; max-width:46ch;}
+.tb-fields{display:flex; flex-direction:column;}
+.tb-field{padding:16px 22px; border-bottom:1px solid var(--line); flex:1; display:flex; flex-direction:column; justify-content:center;}
+.tb-field:last-child{border-bottom:none;}
+.tb-field .k{font-weight:700; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; background:linear-gradient(90deg,var(--pink),var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:5px;}
+.tb-field .v{font-size:13.5px; color:var(--paper); font-weight:500;}
+.tb-field .v a{color:var(--cyan);}
+
+/* ===== Section shell ===== */
+section{padding:56px 0; position:relative;}
+.section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px; border-bottom:1px solid var(--line); padding-bottom:14px;}
+.section-num{font-family:'Sora',sans-serif; font-weight:700; color:var(--bg); font-size:12px; padding:4px 11px; border-radius:20px; background:linear-gradient(90deg,var(--pink),var(--orange));}
+.section-head h2{font-size:25px; font-weight:800; color:var(--paper);}
+.section-head .scale{margin-left:auto; font-size:12px; color:var(--steel); font-weight:500;}
+
+/* ===== About ===== */
+.about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px;}
+.about-grid p{color:var(--steel); margin-bottom:14px; font-size:15px;}
+.about-grid p strong{color:var(--paper); font-weight:600;}
+.legend{border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(20px); border-radius:16px; padding:22px; position:relative; box-shadow:0 25px 50px -28px rgba(34,211,238,0.35); overflow:hidden;}
+.legend::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));}
+.legend h3{font-size:13px; font-weight:700; color:var(--paper); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px;}
+.legend ul{list-style:none;}
+.legend li{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13px;}
+.legend li:last-child{border-bottom:none;}
+.legend li span:first-child{color:var(--steel);}
+.legend li span:last-child{color:var(--paper); font-weight:600;}
+
+/* ===== Reel grid ===== */
+.reel-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:22px;}
+.reel-group-label{font-family:'Sora',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.04em; text-transform:uppercase; color:var(--steel); margin-bottom:16px; padding-left:2px;}
+.reel-card{
+  border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(16px);
+  border-radius:14px;
+  position:relative; overflow:hidden;
+  transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.reel-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--pink);
+  box-shadow:0 20px 40px -14px rgba(255,61,138,0.35);
+}
+.reel-card video{width:100%; display:block; aspect-ratio:16/9; object-fit:cover; background:#000;}
+.reel-tag{
+  position:absolute; top:10px; left:10px;
+  font-family:'Sora',sans-serif; font-weight:700; font-size:10px;
+  background:linear-gradient(90deg,var(--pink),var(--purple)); color:#fff;
+  padding:4px 10px; border-radius:20px; letter-spacing:0.03em;
+  pointer-events:none;
+}
+.reel-cap{padding:14px 16px; border-top:1px solid var(--line);}
+.reel-cap .t{font-size:14px; color:var(--paper); font-weight:600; margin-bottom:2px;}
+.reel-cap .d{font-size:12px; color:var(--steel);}
+
+/* ===== Projects ===== */
+.proj{border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(16px); border-radius:14px; margin-bottom:18px; transition:border-color 0.25s ease, box-shadow 0.25s ease; overflow:hidden;}
+.proj:hover{border-color:var(--line-strong); box-shadow:0 16px 34px -18px rgba(168,85,247,0.4);}
+.proj-head{display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--line); cursor:pointer; gap:16px; transition:background 0.2s ease;}
+.proj-head:hover{background:rgba(255,255,255,0.03);}
+.proj-head h3{font-size:17px; color:var(--paper); font-weight:700;}
+.proj-head .stack{font-family:'Inter',sans-serif; font-weight:500; font-size:11.5px; color:var(--cyan);}
+.proj-head .chev{color:var(--pink); font-size:13px; transition:transform 0.2s ease; flex-shrink:0;}
+.proj.open .chev{transform:rotate(180deg);}
+.proj-body{max-height:0; overflow:hidden; transition:max-height 0.3s ease;}
+.proj.open .proj-body{max-height:400px;}
+.proj-body-inner{padding:20px 24px; color:var(--steel); font-size:14px;}
+.proj-body-inner ul{padding-left:18px; margin-top:8px;}
+.proj-body-inner li{margin-bottom:6px;}
+.proj-links{margin-top:14px; display:flex; gap:16px; font-size:12.5px; font-weight:600;}
+.status-tag{display:block; width:fit-content; font-size:10px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; background:linear-gradient(90deg,var(--cyan),var(--purple)); color:#140B24; padding:3px 10px; border-radius:20px; margin-bottom:10px;}
+
+/* ===== Skills ===== */
+.skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;}
+.skill-col{border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(16px); border-radius:14px; padding:20px 22px; position:relative; transition:transform 0.25s ease, border-color 0.25s ease; overflow:hidden;}
+.skill-col::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));}
+.skill-col:hover{transform:translateY(-4px); border-color:var(--line-strong);}
+.skill-col h4{font-family:'Sora',sans-serif; font-weight:700; font-size:12.5px; color:var(--paper); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;}
+.skill-col ul{list-style:none;}
+.skill-col li{font-size:13.5px; color:var(--steel); padding:5px 0; border-bottom:1px dashed var(--line);}
+.skill-col li:last-child{border-bottom:none;}
+
+/* ===== Education ===== */
+.edu-item{display:flex; gap:20px; padding:18px 0; border-bottom:1px solid var(--line);}
+.edu-item:last-child{border-bottom:none;}
+.edu-item .yr{font-family:'Sora',sans-serif; font-weight:700; font-size:12.5px; color:var(--pink); min-width:90px; padding-top:2px;}
+.edu-item .body h4{font-size:15px; color:var(--paper); font-weight:600; margin-bottom:3px;}
+.edu-item .body p{font-size:13px; color:var(--steel);}
+
+/* ===== Highlight card ===== */
+.highlight-card{
+  border:1px solid var(--line-strong); background:var(--panel); backdrop-filter:blur(20px);
+  border-radius:18px; overflow:hidden; margin-bottom:28px;
+  display:grid; grid-template-columns:1fr 1.1fr; align-items:stretch;
+  box-shadow:0 30px 60px -30px rgba(241,79,209,0.4);
+}
+.highlight-card img{width:100%; height:100%; object-fit:cover; display:block; min-height:220px;}
+.highlight-body{padding:28px 32px; display:flex; flex-direction:column; justify-content:center;}
+.highlight-tag{
+  display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+  background:linear-gradient(90deg,var(--pink),var(--purple)); color:#fff;
+  padding:4px 12px; border-radius:20px; margin-bottom:14px; width:fit-content;
+}
+.highlight-body h4{font-size:20px; font-weight:800; color:var(--paper); margin-bottom:8px;}
+.highlight-body p{font-size:14px; color:var(--steel); line-height:1.6;}
+@media (max-width:720px){
+  .highlight-card{grid-template-columns:1fr;}
+  .highlight-card img{min-height:280px;}
+}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--line); padding:40px 0 60px; margin-top:20px;}
+.footer-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;}
+.footer-grid .contacts{display:flex; gap:24px; flex-wrap:wrap; font-size:13.5px; font-weight:600;}
+.footer-grid .sheet-id{font-size:11.5px; color:var(--steel);}
+
+@media (max-width:720px){
+  .tb-row{grid-template-columns:1fr;}
+  .tb-main{border-right:none; border-bottom:1px solid var(--line); padding:28px 22px; flex-direction:column;}
+  .tb-main h1{font-size:32px;}
+  .about-grid{grid-template-columns:1fr;}
+  nav ul{gap:16px;}
+  nav a{font-size:11px;}
+  .section-head{flex-wrap:wrap;}
+  .section-head .scale{margin-left:0; width:100%;}
+  .edu-item{flex-direction:column; gap:4px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">WN / 2026</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reel">Reel</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="titleblock">
+      <div class="tb-row">
+        <div class="tb-main">
+          <div class="tb-photo">
+            <img src="media/profile.jpg" alt="Wilkester Ngatia" style="object-position:50% 14%;">
+          </div>
+          <div>
+            <h1>Wilkester Ngatia</h1>
+            <div class="role">IT Student · Web Developer · Content &amp; Video Editor</div>
+            <p>I build the structure — interfaces, databases, systems — and I build the story around it, editing footage and voicing narration for the teams I work with.</p>
+          </div>
+        </div>
+        <div class="tb-fields">
+          <div class="tb-field">
+            <div class="k">Based in</div>
+            <div class="v">Nairobi, Kenya</div>
+          </div>
+          <div class="tb-field">
+            <div class="k">Formerly</div>
+            <div class="v">Social Media Manager, Vector Space Ltd (Jul 2025 – May 2026)</div>
+          </div>
+          <div class="tb-field">
+            <div class="k">Studying</div>
+            <div class="v">BSc IT, Mount Kenya University</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+      <span class="scale">Summary of qualifications</span>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p><strong>I work at the intersection of two disciplines that don't usually share a portfolio:</strong> writing code that holds systems together, and editing footage that makes technical work legible to a wider audience.</p>
+        <p>As Social Media Manager at <strong>Vector Space Ltd</strong>, a structural &amp; engineering company, I turned site progress and technical detail into short and long-form video content — shooting, editing, and voicing it myself — while keeping a consistent presence across the company's social platforms.</p>
+        <p>On the development side, I'm working through a BSc in Information Technology, building full applications across mobile, desktop, and web: a Flutter student portal, a Java desktop system for patient management, and PHP/MySQL-backed websites.</p>
+      </div>
+      <div class="legend">
+        <h3>Legend</h3>
+        <ul>
+          <li><span>Content &amp; media</span><span>Video, voice-over, social</span></li>
+          <li><span>Web development</span><span>HTML · CSS · JS · PHP</span></li>
+          <li><span>Applications</span><span>Flutter · Java · MySQL</span></li>
+          <li><span>Languages</span><span>English · Kiswahili</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reel" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Video &amp; voice-over reel</h2>
+      <span class="scale">Site &amp; client content</span>
+    </div>
+    <div class="reel-group-label">Vector Space Ltd</div>
+    <div class="reel-grid">
+      <div class="reel-card"><span class="reel-tag">Reel 01</span>
+        <video controls preload="none" poster="media/reel-01-poster.jpg"><source src="media/reel-01.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">"Behind Every Build, It Starts Here…"</div><div class="d">0:48 — brand intro reel</div></div>
+      </div>
+      <div class="reel-card"><span class="reel-tag">Reel 02</span>
+        <video controls preload="none" poster="media/reel-02-poster.jpg"><source src="media/reel-02.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">4-Storey Apartment, Racecourse</div><div class="d">0:43 — site walkthrough</div></div>
+      </div>
+      <div class="reel-card"><span class="reel-tag">Reel 03</span>
+        <video controls preload="none" poster="media/reel-03-poster.jpg"><source src="media/reel-03.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">Scaffolding &amp; structural progress</div><div class="d">0:30 — site update</div></div>
+      </div>
+      <div class="reel-card"><span class="reel-tag">Reel 05</span>
+        <video controls preload="none" poster="media/reel-05-poster.jpg"><source src="media/reel-05.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">Kileleshwa 2-Bedroom Penthouse Units</div><div class="d">0:47 — site progress</div></div>
+      </div>
+      <div class="reel-card"><span class="reel-tag">Reel 06</span>
+        <video controls preload="none" poster="media/reel-06-poster.jpg"><source src="media/reel-06.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">4-Bedroom Maisonette, Githunguri</div><div class="d">0:46 — aerial site progress</div></div>
+      </div>
+      <div class="reel-card"><span class="reel-tag">Reel 07</span>
+        <video controls preload="none" poster="media/reel-07-poster.jpg"><source src="media/reel-07.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">Modern Luxury Villa, Kahaini</div><div class="d">0:10 — project reveal</div></div>
+      </div>
+    </div>
+
+    <div class="reel-group-label" style="margin-top:36px;">Other client work</div>
+    <div class="reel-grid">
+      <div class="reel-card"><span class="reel-tag">Reel 04</span>
+        <video controls preload="none" poster="media/reel-04-poster.jpg"><source src="media/reel-04.mp4" type="video/mp4"></video>
+        <div class="reel-cap"><div class="t">Bistro storefront feature</div><div class="d">1:18 — other client work</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Development projects</h2>
+      <span class="scale">Coursework &amp; independent builds</span>
+    </div>
+
+    <div class="proj open">
+      <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Student Portal <span class="stack">Flutter · Firebase</span></h3>
+        <span class="chev">▾</span>
+      </div>
+      <div class="proj-body"><div class="proj-body-inner">
+        <span class="status-tag" style="background:linear-gradient(90deg,var(--pink),var(--orange));">Coursework project</span>
+        A full mobile student portal built for BIT4107, now spanning eleven weeks of coursework. Covers authentication, course and exam registration, results, fees, attendance, timetable, library access, GPS, camera, and a floating in-app AI assistant.
+        <div class="proj-links"><a href="https://github.com/wilkisterngatia-bit/student-portal" target="_blank" rel="noopener">GitHub repository ↗</a></div>
+      </div></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Huband Children's Home <span class="stack">Bootstrap · JS</span></h3>
+        <span class="chev">▾</span>
+      </div>
+      <div class="proj-body"><div class="proj-body-inner">
+        <span class="status-tag">In progress</span>
+        A multi-page charity website with a custom design system — token-based CSS, scroll-reveal animation, and responsive navigation — supporting a broader donation management proposal built for an academic project. Currently under active development.
+        <div class="proj-links"><a href="https://github.com/wilkisterngatia-bit/huband-childrens-home" target="_blank" rel="noopener">GitHub repository ↗</a></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Skills</h2>
+      <span class="scale">Tools of the trade</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h4>Web development</h4>
+        <ul><li>HTML &amp; CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4>Digital media</h4>
+        <ul><li>Video editing</li><li>Voice-over production</li><li>Content creation</li><li>Brand communication</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4>Tools</h4>
+        <ul><li>MS Word / Excel / PowerPoint</li><li>Google Workspace</li><li>Canva</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4>Platforms</h4>
+        <ul><li>Instagram · TikTok · Facebook</li><li>Basic analytics</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Education &amp; certifications</h2>
+      <span class="scale">Record</span>
+    </div>
+    <div class="highlight-card">
+      <img src="media/computerpride-certification.jpg" alt="Wilkester receiving her Computer Pride certificate" style="object-position:50% 30%;">
+      <div class="highlight-body">
+        <span class="highlight-tag">Certification Day</span>
+        <h4>Web Design &amp; Development</h4>
+        <p>Certified by Computer Pride in February 2026, covering HTML, CSS, PHP, MySQL, and JavaScript — the foundation this whole site is built on.</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="yr">2024–2027</div>
+      <div class="body"><h4>Bachelor of Science in Information Technology</h4><p>Mount Kenya University — coursework in digital media, communication, and IT systems.</p></div>
+    </div>
+    <div class="edu-item">
+      <div class="yr">Feb 2026</div>
+      <div class="body"><h4>Certificate in Web Design and Development</h4><p>Computer Pride — front-end and basic back-end development: HTML, CSS, JavaScript, PHP, MySQL.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="footer-grid">
+      <div class="contacts">
+        <a href="mailto:wilkisterngatia@gmail.com">wilkisterngatia@gmail.com</a>
+        <a href="tel:0113447271">011 344 7271</a>
+        <a href="https://github.com/wilkisterngatia-bit" target="_blank" rel="noopener">github.com/wilkisterngatia-bit</a>
+      </div>
+      <div class="sheet-id">Drawn by W.N. · Nairobi, Kenya</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+} else {
+  revealEls.forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>
